@@ -61,8 +61,8 @@ RUN mkdir -p /var/lib/shiny-server/bookmarks && \
     chown default:0 /var/lib/shiny-server/bookmarks && \
     chmod a+wrX /var/lib/shiny-server/bookmarks && \
     mkdir -p /var/log/shiny-server && \
-    chgrp -R 0 /var/log/shiny-server/ && \
-    chmod a+wrX /var/log/shiny-server
+    chgrp -R 0 /var/log/ && \
+    chmod -R g=u /var/log/
 
 ## Also touch the packrat folder which is backed up and restored between incremental builds (use s2i with --incremental)
 RUN id && echo " " && whoami && mkdir -p /opt/app-root/src/packrat/ && \
