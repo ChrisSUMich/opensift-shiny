@@ -112,7 +112,7 @@ ARG HOSTDB
 RUN export HOSTDB=$HOSTDB
 ENV HOSTDB $HOSTDB
 RUN env | grep -v 'IGNORE' | grep -v -P '^_' | perl -pe 's/^([^=]+)=(.+)$/Sys.setenv($1='"'"'$2'"'"')/' >> /etc/env.R
-
+ENV SHINY_LOG_STDERR 1
 
 ### Wrapper to allow user name resolution openshift will actually use a random user number so you need group permissions
 ### https://github.com/RHsyseng/container-rhel-examples/blob/master/starter-arbitrary-uid/Dockerfile.centos7
